@@ -161,4 +161,8 @@ String encodedImage=null;
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
+
+    public void btnShowImages(View view) {
+ startActivity(new Intent(getApplicationContext(),ShowImages.class));
+    }
 }

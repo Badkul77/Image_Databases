@@ -31,6 +31,7 @@
         android:text="Upload Image"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        android:onClick="btnShowImages"
         android:layout_marginTop="10dp"
         />
     <Button
