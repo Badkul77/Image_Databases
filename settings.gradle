@@ -1,0 +1,2 @@
+rootProject.name='Image_Database'
+include ':app'
