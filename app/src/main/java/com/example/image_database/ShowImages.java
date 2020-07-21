@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,7 +57,7 @@ public class ShowImages extends AppCompatActivity {
                             JSONObject object = jsonArray.getJSONObject(i);
                             String id=object.getString("id");
                             String imageurl=object.getString("image");
-                            String u = "https://simplyfied.co.in/Test/images/"+imageurl;
+                            String u = "https://simplyfied.co.in/Test/Images/"+imageurl;
                             modelImage=new ModelImage(id,u);
                             imageList.add(modelImage);
                             myAdapter.notifyDataSetChanged();
@@ -72,6 +74,7 @@ public class ShowImages extends AppCompatActivity {
                 Toast.makeText(ShowImages.this, ""+error, Toast.LENGTH_SHORT).show();
             }
         });
-
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
 }

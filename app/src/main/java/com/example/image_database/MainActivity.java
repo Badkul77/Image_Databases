@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 Button btnSelectImage,btnUploadImage;
 ImageView imageView;
 Bitmap bitmap;
-String encodedImage=null;
+private String encodedImage=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +62,7 @@ String encodedImage=null;
                                    Intent intent=new Intent(Intent.ACTION_PICK);
                                    //what type of data in intent
                                    intent.setType("image/*");
-                                   startActivityForResult(Intent.createChooser(intent,"Select Image"),11);
+                                   startActivityForResult(Intent.createChooser(intent,"Select Image"),1);
                                }
 
                                @Override
@@ -116,7 +116,7 @@ String encodedImage=null;
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==11 && resultCode==RESULT_OK && data!=null)
+        if(requestCode==1 && resultCode==RESULT_OK && data!=null)
         {
             //in this your image file path will come
             Uri filepath=data.getData();
@@ -130,7 +130,7 @@ String encodedImage=null;
 
                 //this defined function is used to encode the bitmap to store in mysql
                 imageStore(bitmap);
-            } catch (FileNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
